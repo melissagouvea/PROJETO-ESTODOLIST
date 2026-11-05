@@ -8,17 +8,17 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gray-50 min-h-screen flex flex-col text-gray-800">
+<body class="bg-gray-50 min-h-screen flex flex-col text-gray-800 font-sans antialiased">
 
     <!-- CABEÇALHO -->
-    <header class="bg-blue-600 text-white px-4 py-6 shadow-md">
+    <header class="bg-blue-600 text-white px-4 py-6 shadow-md transition-all duration-300">
         <div class="max-w-5xl mx-auto flex items-center justify-between">
             <div>
-                <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight">
+                <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight hover:opacity-90 transition-opacity duration-200">
                     EsToDoList ☑
                 </h1>
                 <p class="text-sm text-blue-100 mt-1">
-                    Organize suas tarefas com facilidade
+                    Organize suas tarefas com praticidade e elegância
                 </p>
             </div>
         </div>
@@ -33,26 +33,35 @@
                 type="search"
                 id="searchTask"
                 placeholder="Pesquisar tarefa..."
-                class="w-full border border-gray-300 rounded-lg p-3 outline-none focus:ring-2 focus:ring-blue-500 shadow-sm transition"
+                class="w-full border border-gray-300 rounded-lg p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm transition-all duration-300 ease-in-out focus:shadow-md"
             >
 
-            <div class="grid grid-cols-3 gap-2">
-                <button type="button" class="bg-blue-600 text-white px-3 py-2.5 rounded-lg text-sm font-semibold shadow-sm transition hover:bg-blue-700">
+            <div class="grid grid-cols-3 gap-2 sm:gap-4">
+                <button 
+                    type="button" 
+                    class="bg-blue-600 text-white px-3 py-2.5 rounded-lg text-sm font-semibold shadow-sm transition-all duration-300 ease-in-out hover:bg-blue-700 hover:shadow transform hover:-translate-y-0.5 active:translate-y-0"
+                >
                     Todas
                 </button>
-                <button type="button" class="bg-white border border-gray-300 text-gray-700 px-3 py-2.5 rounded-lg text-sm font-semibold hover:bg-gray-50 transition">
+                <button 
+                    type="button" 
+                    class="bg-white border border-gray-300 text-gray-700 px-3 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 ease-in-out hover:bg-blue-50 hover:text-blue-600 hover:border-blue-300 shadow-sm transform hover:-translate-y-0.5 active:translate-y-0"
+                >
                     Pendentes
                 </button>
-                <button type="button" class="bg-white border border-gray-300 text-gray-700 px-3 py-2.5 rounded-lg text-sm font-semibold hover:bg-gray-50 transition">
+                <button 
+                    type="button" 
+                    class="bg-white border border-gray-300 text-gray-700 px-3 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 ease-in-out hover:bg-blue-50 hover:text-blue-600 hover:border-blue-300 shadow-sm transform hover:-translate-y-0.5 active:translate-y-0"
+                >
                     Concluídas
                 </button>
             </div>
         </section>
 
-        <!-- FORMULÁRIO -->
-        <section class="bg-white border border-gray-200 rounded-xl p-5 sm:p-6 mb-8 shadow-sm">
-            <h2 class="text-lg sm:text-xl font-bold mb-4 text-blue-600">
-                Nova Tarefa
+        <!-- FORMULÁRIO DE ADIÇÃO -->
+        <section class="bg-white border border-gray-200 rounded-xl p-5 sm:p-6 mb-8 shadow-sm transition-all duration-300 hover:shadow-md">
+            <h2 class="text-lg sm:text-xl font-bold mb-4 text-blue-600 italic">
+                Adicionar nova tarefa
             </h2>
 
             <form class="space-y-4">
@@ -62,7 +71,7 @@
                         type="text"
                         id="nomeTarefa"
                         placeholder="Ex.: Estudar matemática"
-                        class="w-full border border-gray-300 rounded-lg p-3 outline-none focus:ring-2 focus:ring-blue-500"
+                        class="w-full border border-gray-300 rounded-lg p-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                         required
                     >
                 </div>
@@ -73,14 +82,14 @@
                         id="descricao"
                         placeholder="Descreva o que precisa ser feito..."
                         rows="3"
-                        class="w-full border border-gray-300 rounded-lg p-3 resize-y outline-none focus:ring-2 focus:ring-blue-500"
+                        class="w-full border border-gray-300 rounded-lg p-3 resize-y outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
                     ></textarea>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <div>
                         <label for="categoria" class="block mb-1 text-sm font-medium text-gray-700">Categoria</label>
-                        <select id="categoria" class="w-full border border-gray-300 rounded-lg p-3 bg-white outline-none focus:ring-2 focus:ring-blue-500" required>
+                        <select id="categoria" class="w-full border border-gray-300 rounded-lg p-3 bg-white outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 cursor-pointer" required>
                             <option value="">Selecione...</option>
                             <option value="Estudos">Estudos</option>
                             <option value="Trabalho">Trabalho</option>
@@ -92,12 +101,12 @@
 
                     <div>
                         <label for="dataPrazo" class="block mb-1 text-sm font-medium text-gray-700">Data de entrega</label>
-                        <input type="date" id="dataPrazo" class="w-full border border-gray-300 rounded-lg p-3 bg-white outline-none focus:ring-2 focus:ring-blue-500" required>
+                        <input type="date" id="dataPrazo" class="w-full border border-gray-300 rounded-lg p-3 bg-white outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 cursor-pointer" required>
                     </div>
 
                     <div>
                         <label for="prioridade" class="block mb-1 text-sm font-medium text-gray-700">Prioridade</label>
-                        <select id="prioridade" class="w-full border border-gray-300 rounded-lg p-3 bg-white outline-none focus:ring-2 focus:ring-blue-500" required>
+                        <select id="prioridade" class="w-full border border-gray-300 rounded-lg p-3 bg-white outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 cursor-pointer" required>
                             <option value="">Selecione...</option>
                             <option value="Baixa">Baixa</option>
                             <option value="Média">Média</option>
@@ -108,7 +117,7 @@
 
                 <button
                     type="submit"
-                    class="bg-blue-600 hover:bg-blue-700 text-white w-full sm:w-auto px-6 py-3 rounded-lg font-semibold transition shadow-sm"
+                    class="bg-blue-600 hover:bg-blue-700 text-white w-full sm:w-auto px-6 py-3 rounded-lg font-semibold shadow-sm transition-all duration-300 ease-in-out transform hover:-translate-y-0.5 hover:shadow-md active:translate-y-0"
                 >
                     + Adicionar tarefa
                 </button>
@@ -117,20 +126,20 @@
 
         <!-- LISTA DE TAREFAS -->
         <section>
-            <h2 class="text-lg sm:text-xl font-bold mb-4 text-blue-600">
-                Minhas Tarefas
+            <h2 class="text-lg sm:text-xl font-bold mb-4 text-blue-600 italic">
+                Minhas tarefas cadastradas
             </h2>
 
             <div id="listaTarefas" class="space-y-4">
                 
-                <!-- CARD TAREFA -->
-                <article class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
+                <!-- TAREFA 1: Pendente / Alta Prioridade -->
+                <article class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm transition-all duration-300 ease-in-out hover:shadow-lg hover:border-blue-200 transform hover:-translate-y-1">
                     <div class="flex flex-col sm:flex-row justify-between items-start gap-4">
                         <div class="flex-1 min-w-0">
-                            <h3 class="font-bold text-gray-900 text-lg break-words">
+                            <h3 class="font-bold text-gray-800 text-lg break-words">
                                 Estudar matemática
                             </h3>
-                            <p class="text-gray-600 text-sm mt-1 break-words">
+                            <p class="text-gray-500 text-sm mt-1 break-words">
                                 Resolver exercícios de combinação e permutação.
                             </p>
                             <p class="text-xs text-gray-500 mt-3">
@@ -138,28 +147,154 @@
                             </p>
 
                             <div class="flex flex-wrap gap-2 mt-3">
-                                <span class="bg-blue-50 text-blue-700 text-xs px-2.5 py-1 rounded-md font-medium border border-blue-200">
+                                <span class="bg-blue-100 text-blue-700 text-xs px-3 py-1 rounded-full font-medium transition-colors duration-200 hover:bg-blue-200">
                                     Estudos
                                 </span>
-                                <span class="bg-red-50 text-red-700 text-xs px-2.5 py-1 rounded-md font-medium border border-red-200">
+                                <span class="bg-red-100 text-red-700 text-xs px-3 py-1 rounded-full font-medium transition-colors duration-200 hover:bg-red-200">
                                     Alta prioridade
                                 </span>
-                                <span class="bg-amber-50 text-amber-700 text-xs px-2.5 py-1 rounded-md font-medium border border-amber-200">
+                                <span class="bg-amber-100 text-amber-700 text-xs px-3 py-1 rounded-full font-medium transition-colors duration-200 hover:bg-amber-200">
                                     Pendente
                                 </span>
                             </div>
                         </div>
 
-                        <button type="button" class="text-sm text-blue-600 font-semibold hover:text-blue-800 transition">
+                        <button type="button" class="text-sm text-blue-600 font-semibold hover:text-blue-800 transition-colors duration-200 underline-offset-4 hover:underline">
                             Editar
                         </button>
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-5 border-t border-gray-100 pt-4">
-                        <button type="button" class="bg-emerald-600 hover:bg-emerald-700 text-white w-full px-4 py-2.5 rounded-lg text-sm font-semibold transition">
+                        <button type="button" class="bg-emerald-600 hover:bg-emerald-700 text-white w-full px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 ease-in-out shadow-sm hover:shadow transform hover:-translate-y-0.5 active:translate-y-0">
                             Concluir tarefa
                         </button>
-                        <button type="button" class="bg-red-600 hover:bg-red-700 text-white w-full px-4 py-2.5 rounded-lg text-sm font-semibold transition">
+                        <button type="button" class="bg-red-600 hover:bg-red-700 text-white w-full px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 ease-in-out shadow-sm hover:shadow transform hover:-translate-y-0.5 active:translate-y-0">
+                            Excluir tarefa
+                        </button>
+                    </div>
+                </article>
+
+                <!-- TAREFA 2: Pendente / Média Prioridade -->
+                <article class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm transition-all duration-300 ease-in-out hover:shadow-lg hover:border-blue-200 transform hover:-translate-y-1">
+                    <div class="flex flex-col sm:flex-row justify-between items-start gap-4">
+                        <div class="flex-1 min-w-0">
+                            <h3 class="font-bold text-gray-800 text-lg break-words">
+                                Realizar feira de ciências
+                            </h3>
+                            <p class="text-gray-500 text-sm mt-1 break-words">
+                                Fazer os prompts dos jogos e testar com o grupo.
+                            </p>
+                            <p class="text-xs text-gray-500 mt-3">
+                                <span class="font-medium text-gray-700">Prazo:</span> 18/11/2026
+                            </p>
+
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="bg-purple-100 text-purple-700 text-xs px-3 py-1 rounded-full font-medium transition-colors duration-200 hover:bg-purple-200">
+                                    Projetos
+                                </span>
+                                <span class="bg-amber-100 text-amber-700 text-xs px-3 py-1 rounded-full font-medium transition-colors duration-200 hover:bg-amber-200">
+                                    Média prioridade
+                                </span>
+                                <span class="bg-amber-100 text-amber-700 text-xs px-3 py-1 rounded-full font-medium transition-colors duration-200 hover:bg-amber-200">
+                                    Pendente
+                                </span>
+                            </div>
+                        </div>
+
+                        <button type="button" class="text-sm text-blue-600 font-semibold hover:text-blue-800 transition-colors duration-200 underline-offset-4 hover:underline">
+                            Editar
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-5 border-t border-gray-100 pt-4">
+                        <button type="button" class="bg-emerald-600 hover:bg-emerald-700 text-white w-full px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 ease-in-out shadow-sm hover:shadow transform hover:-translate-y-0.5 active:translate-y-0">
+                            Concluir tarefa
+                        </button>
+                        <button type="button" class="bg-red-600 hover:bg-red-700 text-white w-full px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 ease-in-out shadow-sm hover:shadow transform hover:-translate-y-0.5 active:translate-y-0">
+                            Excluir tarefa
+                        </button>
+                    </div>
+                </article>
+
+                <!-- TAREFA 3: Concluída / Baixa Prioridade -->
+                <article class="bg-gray-50 border border-gray-200 rounded-xl p-5 shadow-sm opacity-80 transition-all duration-300 ease-in-out hover:opacity-100 hover:shadow-md hover:border-gray-300">
+                    <div class="flex flex-col sm:flex-row justify-between items-start gap-4">
+                        <div class="flex-1 min-w-0">
+                            <h3 class="font-bold text-gray-500 text-lg line-through break-words">
+                                Comprar livros de leitura do semestre
+                            </h3>
+                            <p class="text-gray-400 text-sm mt-1 break-words line-through">
+                                Pesquisar opções usadas na estante virtual.
+                            </p>
+                            <p class="text-xs text-gray-400 mt-3">
+                                <span class="font-medium text-gray-600">Concluído em:</span> 02/11/2026
+                            </p>
+
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="bg-gray-200 text-gray-600 text-xs px-3 py-1 rounded-full font-medium">
+                                    Pessoal
+                                </span>
+                                <span class="bg-gray-200 text-gray-600 text-xs px-3 py-1 rounded-full font-medium">
+                                    Baixa prioridade
+                                </span>
+                                <span class="bg-emerald-100 text-emerald-700 text-xs px-3 py-1 rounded-full font-medium">
+                                    Concluída
+                                </span>
+                            </div>
+                        </div>
+
+                        <button type="button" class="text-sm text-gray-400 font-semibold cursor-not-allowed">
+                            Editar
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-5 border-t border-gray-200 pt-4">
+                        <button type="button" class="bg-gray-300 text-gray-700 w-full px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 ease-in-out hover:bg-amber-500 hover:text-white shadow-sm transform hover:-translate-y-0.5 active:translate-y-0">
+                            Reabrir tarefa
+                        </button>
+                        <button type="button" class="bg-red-600 hover:bg-red-700 text-white w-full px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 ease-in-out shadow-sm hover:shadow transform hover:-translate-y-0.5 active:translate-y-0">
+                            Excluir tarefa
+                        </button>
+                    </div>
+                </article>
+
+                <!-- TAREFA 4: Trabalho / Alta Prioridade -->
+                <article class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm transition-all duration-300 ease-in-out hover:shadow-lg hover:border-blue-200 transform hover:-translate-y-1">
+                    <div class="flex flex-col sm:flex-row justify-between items-start gap-4">
+                        <div class="flex-1 min-w-0">
+                            <h3 class="font-bold text-gray-800 text-lg break-words">
+                                Enviar relatório semanal
+                            </h3>
+                            <p class="text-gray-500 text-sm mt-1 break-words">
+                                Consolidar dados das tarefas finalizadas do projeto.
+                            </p>
+                            <p class="text-xs text-gray-500 mt-3">
+                                <span class="font-medium text-gray-700">Prazo:</span> 10/11/2026
+                            </p>
+
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="bg-teal-100 text-teal-700 text-xs px-3 py-1 rounded-full font-medium transition-colors duration-200 hover:bg-teal-200">
+                                    Trabalho
+                                </span>
+                                <span class="bg-red-100 text-red-700 text-xs px-3 py-1 rounded-full font-medium transition-colors duration-200 hover:bg-red-200">
+                                    Alta prioridade
+                                </span>
+                                <span class="bg-amber-100 text-amber-700 text-xs px-3 py-1 rounded-full font-medium transition-colors duration-200 hover:bg-amber-200">
+                                    Pendente
+                                </span>
+                            </div>
+                        </div>
+
+                        <button type="button" class="text-sm text-blue-600 font-semibold hover:text-blue-800 transition-colors duration-200 underline-offset-4 hover:underline">
+                            Editar
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-5 border-t border-gray-100 pt-4">
+                        <button type="button" class="bg-emerald-600 hover:bg-emerald-700 text-white w-full px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 ease-in-out shadow-sm hover:shadow transform hover:-translate-y-0.5 active:translate-y-0">
+                            Concluir tarefa
+                        </button>
+                        <button type="button" class="bg-red-600 hover:bg-red-700 text-white w-full px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 ease-in-out shadow-sm hover:shadow transform hover:-translate-y-0.5 active:translate-y-0">
                             Excluir tarefa
                         </button>
                     </div>
@@ -171,10 +306,14 @@
     </main>
 
     <!-- RODAPÉ -->
-    <footer class="bg-white border-t border-gray-200 px-4 py-6 text-center mt-8">
-        <p class="text-sm text-gray-600">
+    <footer class="bg-white border-t border-gray-200 px-4 py-6 text-center mt-12 transition-all duration-300">
+        <p class="text-sm text-gray-500">
             EsToDoList © 2026 — Feito por 
-            <a href="https://www.linkedin.com/in/melissa-gouv%C3%AAa-17998542a/" target="_blank" class="text-blue-600 hover:underline font-medium">
+            <a 
+                href="https://www.linkedin.com/in/melissa-gouv%C3%AAa-17998542a/" 
+                target="_blank" 
+                class="text-blue-600 font-semibold hover:text-blue-800 transition-colors duration-200 underline-offset-2 hover:underline"
+            >
                 Melissa Gomes Gouvêa
             </a>
         </p>
