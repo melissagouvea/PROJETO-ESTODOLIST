@@ -1,388 +1,184 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>EsToDoList</title>
-
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gray-50 min-h-screen flex flex-col">
+<body class="bg-gray-50 min-h-screen flex flex-col text-gray-800">
 
     <!-- CABEÇALHO -->
-    <header class="bg-blue-600 text-white px-4 py-5 sm:px-6 sm:py-6">
-
-        <div class="max-w-5xl mx-auto">
-
-            <h1 class="text-2xl sm:text-3xl font-bold">
-                EsToDoList ☑
-            </h1>
-
-            <p class="text-sm sm:text-base text-blue-100 mt-1">
-                Minhas tarefas
-            </p>
-
+    <header class="bg-blue-600 text-white px-4 py-6 shadow-md">
+        <div class="max-w-5xl mx-auto flex items-center justify-between">
+            <div>
+                <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight">
+                    EsToDoList ☑
+                </h1>
+                <p class="text-sm text-blue-100 mt-1">
+                    Organize suas tarefas com facilidade
+                </p>
+            </div>
         </div>
-
     </header>
 
-
     <!-- CONTEÚDO PRINCIPAL -->
-    <main class="w-full max-w-5xl mx-auto px-4 py-5 sm:px-6 sm:py-8 flex-1">
+    <main class="w-full max-w-5xl mx-auto px-4 py-6 sm:py-8 flex-1">
 
-        <h2 class="text-xl sm:text-2xl font-bold mb-5 text-blue-500 italic">
-            Minhas tarefas
-        </h2>
+        <!-- BUSCA E FILTROS -->
+        <section class="mb-8 space-y-4">
+            <input
+                type="search"
+                id="searchTask"
+                placeholder="Pesquisar tarefa..."
+                class="w-full border border-gray-300 rounded-lg p-3 outline-none focus:ring-2 focus:ring-blue-500 shadow-sm transition"
+            >
 
-
-        <!-- PESQUISA -->
-        <input
-            type="search"
-            placeholder="Pesquisar tarefa..."
-            class="w-full border border-gray-300 rounded-lg p-3 mb-5 outline-none focus:ring-2 focus:ring-blue-400"
-        >
-
-
-        <!-- FILTROS -->
-        <div class="grid grid-cols-3 gap-2 mb-6">
-
-            <button
-                type="button"
-                class="bg-blue-600 text-white px-2 py-3 rounded-full text-sm sm:text-base font-medium">
-                Todas
-            </button>
-
-            <button
-                type="button"
-                class="bg-gray-200 text-gray-700 px-2 py-3 rounded-full text-sm sm:text-base font-medium hover:bg-blue-100">
-                Pendentes
-            </button>
-
-            <button
-                type="button"
-                class="bg-gray-200 text-gray-700 px-2 py-3 rounded-full text-sm sm:text-base font-medium hover:bg-blue-100">
-                Concluídas
-            </button>
-
-        </div>
-
+            <div class="grid grid-cols-3 gap-2">
+                <button type="button" class="bg-blue-600 text-white px-3 py-2.5 rounded-lg text-sm font-semibold shadow-sm transition hover:bg-blue-700">
+                    Todas
+                </button>
+                <button type="button" class="bg-white border border-gray-300 text-gray-700 px-3 py-2.5 rounded-lg text-sm font-semibold hover:bg-gray-50 transition">
+                    Pendentes
+                </button>
+                <button type="button" class="bg-white border border-gray-300 text-gray-700 px-3 py-2.5 rounded-lg text-sm font-semibold hover:bg-gray-50 transition">
+                    Concluídas
+                </button>
+            </div>
+        </section>
 
         <!-- FORMULÁRIO -->
-        <section class="bg-white border border-gray-200 rounded-xl p-4 sm:p-6 mb-8 shadow-sm">
+        <section class="bg-white border border-gray-200 rounded-xl p-5 sm:p-6 mb-8 shadow-sm">
+            <h2 class="text-lg sm:text-xl font-bold mb-4 text-blue-600">
+                Nova Tarefa
+            </h2>
 
-            <h3 class="text-lg sm:text-xl font-bold mb-5 text-blue-500 italic">
-                Adicionar nova tarefa
-            </h3>
-
-            <form>
-
-                <!-- NOME DA TAREFA -->
-                <div class="mb-4">
-
-                    <label for="nomeTarefa" class="block mb-2 font-medium text-gray-700">
-                        Nome da tarefa
-                    </label>
-
+            <form class="space-y-4">
+                <div>
+                    <label for="nomeTarefa" class="block mb-1 text-sm font-medium text-gray-700">Nome da tarefa</label>
                     <input
                         type="text"
                         id="nomeTarefa"
-                        name="nomeTarefa"
                         placeholder="Ex.: Estudar matemática"
-                        class="w-full border border-gray-300 rounded-lg p-3 outline-none focus:ring-2 focus:ring-blue-400"
+                        class="w-full border border-gray-300 rounded-lg p-3 outline-none focus:ring-2 focus:ring-blue-500"
                         required
                     >
-
                 </div>
 
-
-                <!-- DESCRIÇÃO -->
-                <div class="mb-4">
-
-                    <label for="descricao" class="block mb-2 font-medium text-gray-700">
-                        Descrição
-                    </label>
-
+                <div>
+                    <label for="descricao" class="block mb-1 text-sm font-medium text-gray-700">Descrição</label>
                     <textarea
                         id="descricao"
-                        name="descricao"
                         placeholder="Descreva o que precisa ser feito..."
                         rows="3"
-                        class="w-full border border-gray-300 rounded-lg p-3 resize-y outline-none focus:ring-2 focus:ring-blue-400"
+                        class="w-full border border-gray-300 rounded-lg p-3 resize-y outline-none focus:ring-2 focus:ring-blue-500"
                     ></textarea>
-
                 </div>
 
-
-                <!-- CATEGORIA, DATA E PRIORIDADE -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4">
-
-                    <!-- CATEGORIA -->
-                    <div class="mb-4">
-
-                        <label for="categoria" class="block mb-2 font-medium text-gray-700">
-                            Categoria
-                        </label>
-
-                        <select
-                            id="categoria"
-                            name="categoria"
-                            class="w-full border border-gray-300 rounded-lg p-3 bg-white outline-none focus:ring-2 focus:ring-blue-400"
-                            required
-                        >
-
-                            <option value="">Selecione uma categoria</option>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div>
+                        <label for="categoria" class="block mb-1 text-sm font-medium text-gray-700">Categoria</label>
+                        <select id="categoria" class="w-full border border-gray-300 rounded-lg p-3 bg-white outline-none focus:ring-2 focus:ring-blue-500" required>
+                            <option value="">Selecione...</option>
                             <option value="Estudos">Estudos</option>
                             <option value="Trabalho">Trabalho</option>
                             <option value="Pessoal">Pessoal</option>
                             <option value="Projetos">Projetos</option>
                             <option value="Outros">Outros</option>
-
                         </select>
-
                     </div>
 
-
-                    <!-- DATA -->
-                    <div class="mb-4">
-
-                        <label for="dataPrazo" class="block mb-2 font-medium text-gray-700">
-                            Data de entrega
-                        </label>
-
-                        <input
-                            type="date"
-                            id="dataPrazo"
-                            name="dataPrazo"
-                            class="w-full border border-gray-300 rounded-lg p-3 bg-white outline-none focus:ring-2 focus:ring-blue-400"
-                            required
-                        >
-
+                    <div>
+                        <label for="dataPrazo" class="block mb-1 text-sm font-medium text-gray-700">Data de entrega</label>
+                        <input type="date" id="dataPrazo" class="w-full border border-gray-300 rounded-lg p-3 bg-white outline-none focus:ring-2 focus:ring-blue-500" required>
                     </div>
 
-
-                    <!-- PRIORIDADE -->
-                    <div class="mb-4">
-
-                        <label for="prioridade" class="block mb-2 font-medium text-gray-700">
-                            Prioridade
-                        </label>
-
-                        <select
-                            id="prioridade"
-                            name="prioridade"
-                            class="w-full border border-gray-300 rounded-lg p-3 bg-white outline-none focus:ring-2 focus:ring-blue-400"
-                            required
-                        >
-
-                            <option value="">Selecione a prioridade</option>
+                    <div>
+                        <label for="prioridade" class="block mb-1 text-sm font-medium text-gray-700">Prioridade</label>
+                        <select id="prioridade" class="w-full border border-gray-300 rounded-lg p-3 bg-white outline-none focus:ring-2 focus:ring-blue-500" required>
+                            <option value="">Selecione...</option>
                             <option value="Baixa">Baixa</option>
                             <option value="Média">Média</option>
                             <option value="Alta">Alta</option>
-
                         </select>
-
                     </div>
-
                 </div>
 
-
-                <!-- BOTÃO ADICIONAR -->
                 <button
                     type="submit"
-                    class="bg-blue-600 hover:bg-blue-700 text-white w-full sm:w-auto px-6 py-3 rounded-lg font-semibold transition-colors"
+                    class="bg-blue-600 hover:bg-blue-700 text-white w-full sm:w-auto px-6 py-3 rounded-lg font-semibold transition shadow-sm"
                 >
                     + Adicionar tarefa
                 </button>
-
             </form>
-
         </section>
 
-
         <!-- LISTA DE TAREFAS -->
-        <section class="mb-8">
-
-            <h3 class="text-lg sm:text-xl font-bold mb-4 text-blue-500 italic">
-                Minhas tarefas cadastradas
-            </h3>
-
+        <section>
+            <h2 class="text-lg sm:text-xl font-bold mb-4 text-blue-600">
+                Minhas Tarefas
+            </h2>
 
             <div id="listaTarefas" class="space-y-4">
-
-
-                <!-- CARTÃO DE TAREFA -->
-                <article class="bg-white border border-gray-200 rounded-xl p-4 sm:p-5 shadow-sm">
-
+                
+                <!-- CARD TAREFA -->
+                <article class="bg-white border border-gray-200 rounded-xl p-5 shadow-sm hover:shadow-md transition">
                     <div class="flex flex-col sm:flex-row justify-between items-start gap-4">
-
-                        <!-- INFORMAÇÕES -->
                         <div class="flex-1 min-w-0">
-
-                            <h4 class="font-bold text-gray-800 text-lg break-words">
+                            <h3 class="font-bold text-gray-900 text-lg break-words">
                                 Estudar matemática
-                            </h4>
-
-                            <p class="text-gray-500 text-sm mt-2 break-words">
+                            </h3>
+                            <p class="text-gray-600 text-sm mt-1 break-words">
                                 Resolver exercícios de combinação e permutação.
                             </p>
-
-                            <p class="text-sm text-gray-500 mt-2">
-                                <span class="text-gray-800 font-medium">Prazo:</span>
-                                05/11/2026
+                            <p class="text-xs text-gray-500 mt-3">
+                                <span class="font-medium text-gray-700">Prazo:</span> 05/11/2026
                             </p>
 
-
-                            <!-- ETIQUETAS -->
                             <div class="flex flex-wrap gap-2 mt-3">
-
-                                <span class="bg-blue-100 text-blue-700 text-xs px-3 py-2 rounded-full">
+                                <span class="bg-blue-50 text-blue-700 text-xs px-2.5 py-1 rounded-md font-medium border border-blue-200">
                                     Estudos
                                 </span>
-
-                                <span class="bg-red-100 text-red-700 text-xs px-3 py-2 rounded-full">
+                                <span class="bg-red-50 text-red-700 text-xs px-2.5 py-1 rounded-md font-medium border border-red-200">
                                     Alta prioridade
                                 </span>
-
-                                <span class="bg-yellow-100 text-yellow-700 text-xs px-3 py-2 rounded-full">
+                                <span class="bg-amber-50 text-amber-700 text-xs px-2.5 py-1 rounded-md font-medium border border-amber-200">
                                     Pendente
                                 </span>
-
                             </div>
-
                         </div>
 
-
-                        <!-- EDITAR -->
-                        <button
-                            type="button"
-                            class="text-blue-600 font-semibold w-full sm:w-auto text-left hover:text-blue-800"
-                        >
+                        <button type="button" class="text-sm text-blue-600 font-semibold hover:text-blue-800 transition">
                             Editar
                         </button>
-
                     </div>
 
-
-                    <!-- BOTÕES DE AÇÃO -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-5">
-
-                        <button
-                            type="button"
-                            class="bg-green-400 hover:bg-green-500 text-green-950 w-full px-4 py-3 rounded-lg font-medium transition-colors"
-                        >
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-5 border-t border-gray-100 pt-4">
+                        <button type="button" class="bg-emerald-600 hover:bg-emerald-700 text-white w-full px-4 py-2.5 rounded-lg text-sm font-semibold transition">
                             Concluir tarefa
                         </button>
-
-                        <button
-                            type="button"
-                            class="bg-red-400 hover:bg-red-500 text-red-950 w-full px-4 py-3 rounded-lg font-medium transition-colors"
-                        >
+                        <button type="button" class="bg-red-600 hover:bg-red-700 text-white w-full px-4 py-2.5 rounded-lg text-sm font-semibold transition">
                             Excluir tarefa
                         </button>
-
                     </div>
-
                 </article>
-<!-- ----------------------------------------------------------------------------------------------------------- -->
-
-<article class="bg-white border border-gray-200 rounded-xl p-4 sm:p-5 shadow-sm">
-
-                    <div class="flex flex-col sm:flex-row justify-between items-start gap-4">
-
-                        <!-- INFORMAÇÕES -->
-                        <div class="flex-1 min-w-0">
-
-                            <h4 class="font-bold text-gray-800 text-lg break-words">
-                                Realizar feira de ciências 
-                            </h4>
-
-                            <p class="text-gray-500 text-sm mt-2 break-words">
-                                Fazer os prompts dos jogos.
-                            </p>
-
-                            <p class="text-sm text-gray-500 mt-2">
-                                <span class="text-gray-800 font-medium">Prazo:</span>
-                                18/11/2026
-                            </p>
-
-
-                            <!-- ETIQUETAS -->
-                            <div class="flex flex-wrap gap-2 mt-3">
-
-                                <span class="bg-blue-100 text-blue-700 text-xs px-3 py-2 rounded-full">
-                                    Estudos
-                                </span>
-
-                                <span class="bg-red-100 text-red-700 text-xs px-3 py-2 rounded-full">
-                                    Alta prioridade
-                                </span>
-
-                                <span class="bg-yellow-100 text-yellow-700 text-xs px-3 py-2 rounded-full">
-                                    Pendente
-                                </span>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- EDITAR -->
-                        <button
-                            type="button"
-                            class="text-blue-600 font-semibold w-full sm:w-auto text-left hover:text-blue-800"
-                        >
-                            Editar
-                        </button>
-
-                    </div>
-
-
-                    <!-- BOTÕES DE AÇÃO -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-5">
-
-                        <button
-                            type="button"
-                            class="bg-green-400 hover:bg-green-500 text-green-950 w-full px-4 py-3 rounded-lg font-medium transition-colors"
-                        >
-                            Concluir tarefa
-                        </button>
-
-                        <button
-                            type="button"
-                            class="bg-red-400 hover:bg-red-500 text-red-950 w-full px-4 py-3 rounded-lg font-medium transition-colors"
-                        >
-                            Excluir tarefa
-                        </button>
-
-                    </div>
-
-                </article>
-
-<!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
             </div>
-
         </section>
 
     </main>
 
-
     <!-- RODAPÉ -->
-    <footer class="bg-gray-100 border-t border-gray-200 px-4 py-5 text-center">
-
-        <p class="text-sm text-gray-500">
-            EsToDoList © 2026 — Feito por Melissa Gomes Gouvêa -
-               <div class="footer-link">
-                <a href="www.linkedin.com/in/melissa-gouvêa-17998542a" target="_blank">Linkedin</a>
-                </div>
+    <footer class="bg-white border-t border-gray-200 px-4 py-6 text-center mt-8">
+        <p class="text-sm text-gray-600">
+            EsToDoList © 2026 — Feito por 
+            <a href="https://www.linkedin.com/in/melissa-gouv%C3%AAa-17998542a/" target="_blank" class="text-blue-600 hover:underline font-medium">
+                Melissa Gomes Gouvêa
+            </a>
         </p>
-
     </footer>
-
 
 </body>
 </html>
